@@ -46,7 +46,7 @@ public class Convert {
 ///////////////////////////////////////////////////////////////////
 
 //	ローマ数列を一文字ごとに分離
-	public ArrayList<String> makeRomeList(String romeNum){
+	private ArrayList<String> makeRomeList(String romeNum){
 		ArrayList<String> strList = new ArrayList<String>();
 		for (int i = 0; i <= romeNum.length() - 1; i++){
 			strList.add(String.valueOf(romeNum.charAt(i)));
@@ -55,7 +55,7 @@ public class Convert {
 	}
 	
 //	ローマ数列リストをアラビア数列リストへ変換
-	public ArrayList<Integer> makeArabList(ArrayList<String> strList){
+	private ArrayList<Integer> makeArabList(ArrayList<String> strList){
 		ArrayList<Integer> numList = new ArrayList<Integer>();
 		for (int i = 0; i <= strList.size()-1; i++){
 			int s = convertRomeToArab(strList.get(i));
@@ -66,7 +66,7 @@ public class Convert {
 
 	
 //	文字を数字に変換	
-	public int convertRomeToArab(String romeNum){
+	private int convertRomeToArab(String romeNum){
 		int num = 0; //ローマ数字を数字に当てはめる時の格納先
 		switch(romeNum){
 	        case "I": return num = 1;
@@ -84,7 +84,7 @@ public class Convert {
 
 	
 //	変換された個別の数値を足す（または引く）処理
-	public int sumTotal(ArrayList<Integer> numList){
+	private int sumTotal(ArrayList<Integer> numList){
 		int totalNum = 0;
 		totalNum = numList.get(0);
 		
@@ -105,7 +105,7 @@ public class Convert {
 ///////////////////////////////////////////////////////////////////
 
 //	アラビア数列を桁ごとにリストへ入れる処理
-	public ArrayList<Integer> makeArabList(int arabNum){
+	private ArrayList<Integer> makeArabList(int arabNum){
 		ArrayList<Integer> numList = new ArrayList<Integer>();
 		String strNum = String.valueOf(arabNum);
 		for (int i = 0; i <= strNum.length() - 1; i++){
@@ -115,7 +115,7 @@ public class Convert {
 	}
 	
 //	桁数ごとに処理を切り替えるて数値へ変換した値をリストで返す処理
-	public ArrayList<String> makeRomeList(ArrayList<Integer> numList){
+	private ArrayList<String> makeRomeList(ArrayList<Integer> numList){
 //		何桁か調べる
 		int digits = numList.size();
 		ArrayList<String> romeList = new ArrayList<String>();
@@ -126,7 +126,7 @@ public class Convert {
 	}
 	
 //	アラビア→ローマ変換
-	public String convertArabToRome(int arabNum, int digits){
+	private String convertArabToRome(int arabNum, int digits){
 		String romeNum = "";
 		String[][] digitsMatrix = {
 				{"I","X","C","M"},
@@ -146,7 +146,7 @@ public class Convert {
 	}
 	
 //	リストを一つの文字列にまとめる処理
-	public String ConnectRomeNumList(ArrayList<String> romeNum){
+	private String ConnectRomeNumList(ArrayList<String> romeNum){
 		String ans = "";
 		for (int i=0; i <= romeNum.size()-1; i++){
 			ans = ans + romeNum.get(i);
@@ -161,7 +161,7 @@ public class Convert {
 	
 	
 //	入力された数列がローマかアラビアか判定する（trueがローマ、falseがアラビア)
-	public boolean checkStr(String romeNum){
+	private boolean checkStr(String romeNum){
 		boolean checkStr = false;
 		boolean checkNum = false;
 		checkStr = romeNum.matches("^[IVXLCDM]+$");
@@ -178,7 +178,7 @@ public class Convert {
 		return checkStr;
 	}
 //	ローマ数列書式チェック
-	public boolean checkRome(String romeNum){
+	private boolean checkRome(String romeNum){
 		boolean result = true;
 		if (romeNum.matches("[I]{4,}$|[V]{2,}$|[X]{4,}$|[L]{2,}$|[C]{4,}$|[D]{2,}$|[M]{4,}$")){
 			errorMessage = "ローマ数列の書式が不正です。単一の文字は3文字以内で構成しましょう。5の倍数を表す文字は2文字以上続けて表現できません。";
@@ -194,7 +194,7 @@ public class Convert {
 		return result;
 	}
 //　アラビア数列書式チェック;
-	public boolean checkArab(int arabNum){
+	private boolean checkArab(int arabNum){
 		boolean result = true;
 		if (arabNum < 1 || 3999 < arabNum){
 			errorMessage = "ローマ数字はアラビア数字の1〜3999までの範囲のみ処理可能です。";

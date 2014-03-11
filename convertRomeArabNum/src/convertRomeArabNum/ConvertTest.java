@@ -7,29 +7,29 @@ import org.junit.Test;
 
 public class ConvertTest {
 
-	@Test //ローマ数字単体を数字に変換する処理のテスト
-	public void testＭを入力して１０００が返ってくる() {
-		Convert trconvertNumform = new Convert();
-		int num = trconvertNumform.convertRomeToArab("M");
-		assertEquals(1000, num);
-	}
-	@Test //ローマ数列をリストへ個別に格納するテスト
-	public void testローマ数列を入力すると個別に格納されたリストが返ってくる() {
-		Convert trconvertNumform = new Convert();
-		ArrayList<String> splitString = trconvertNumform.makeRomeList("VI");
-		assertEquals("V", splitString.get(0));
-		assertEquals("I", splitString.get(1));
-	}
-	@Test //ローマ数列リストをアラビア数列リストへ変更するテスト
-	public void testローマ数列リストを入力するとアラビア数列リストが返ってくる() {
-		Convert trconvertNumform = new Convert();
-		ArrayList<String> testRome = new ArrayList<String>();
-		testRome.add("V");
-		testRome.add("I");
-		ArrayList<Integer> splitString = trconvertNumform.makeArabList(testRome);
-		assertEquals("5", String.valueOf(splitString.get(0)));
-		assertEquals("1", String.valueOf(splitString.get(1)));
-	}
+//	@Test //ローマ数字単体を数字に変換する処理のテスト
+//	public void testＭを入力して１０００が返ってくる() {
+//		Convert trconvertNumform = new Convert();
+//		int num = trconvertNumform.convertRomeToArab("M");
+//		assertEquals(1000, num);
+//	}
+//	@Test //ローマ数列をリストへ個別に格納するテスト
+//	public void testローマ数列を入力すると個別に格納されたリストが返ってくる() {
+//		Convert trconvertNumform = new Convert();
+//		ArrayList<String> splitString = trconvertNumform.makeRomeList("VI");
+//		assertEquals("V", splitString.get(0));
+//		assertEquals("I", splitString.get(1));
+//	}
+//	@Test //ローマ数列リストをアラビア数列リストへ変更するテスト
+//	public void testローマ数列リストを入力するとアラビア数列リストが返ってくる() {
+//		Convert trconvertNumform = new Convert();
+//		ArrayList<String> testRome = new ArrayList<String>();
+//		testRome.add("V");
+//		testRome.add("I");
+//		ArrayList<Integer> splitString = trconvertNumform.makeArabList(testRome);
+//		assertEquals("5", String.valueOf(splitString.get(0)));
+//		assertEquals("1", String.valueOf(splitString.get(1)));
+//	}
 	@Test //ローマ数列をアラビア数列へ変換する
 	public void testローマ数列を入力するとアラビア数列が返ってくる() {
 		Convert trconvertNumform = new Convert();
