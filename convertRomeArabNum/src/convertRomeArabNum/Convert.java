@@ -91,24 +91,19 @@ public class Convert {
 //	アラビア→ローマ変換
 	public String arabToRome(int arabNum, int digits){
 		String romeNum = "";
-		String[] digits1 = new String[]{"I","X","C","M"};
-		String[] digits2 = new String[]{"II","XX","CC","MM"};
-		String[] digits3 = new String[]{"III","XXX","CCC","MMM"};
-		String[] digits4 = new String[]{"IV","XL","CD"};
-		String[] digits5 = new String[]{"V","L","D"};
-		String[] digits6 = new String[]{"VI","LX","DC"};
-		String[] digits7 = new String[]{"VII","LXX","DCC"};
-		String[] digits8 = new String[]{"VIII","LXXX","DCCC"};
-		String[] digits9 = new String[]{"IX","XC","CM"};
-		if (arabNum == 1){romeNum = digits1[digits];
-		}else if (arabNum == 2){romeNum = digits2[digits-1];
-		}else if (arabNum == 3){romeNum = digits3[digits-1];
-		}else if (arabNum == 4){romeNum = digits4[digits-1];
-		}else if (arabNum == 5){romeNum = digits5[digits-1];
-		}else if (arabNum == 6){romeNum = digits6[digits-1];
-		}else if (arabNum == 7){romeNum = digits7[digits-1];
-		}else if (arabNum == 8){romeNum = digits8[digits-1];
-		}else if (arabNum == 9){romeNum = digits9[digits-1];
+		String[][] digitsMatrix = {
+				{"I","X","C","M"},
+				{"II","XX","CC","MM"},
+				{"III","XXX","CCC","MMM"},
+				{"IV","XL","CD"},
+				{"V","L","D"},
+				{"VI","LX","DC"},
+				{"VII","LXX","DCC"},
+				{"VIII","LXXX","DCCC"},
+				{"IX","XC","CM"}
+				};
+		for (int j=1; j<=9; j++){
+			if (arabNum == j){romeNum = digitsMatrix[j-1][digits-1];}
 		}
 		return romeNum;
 	}
