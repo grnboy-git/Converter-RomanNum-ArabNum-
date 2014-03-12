@@ -54,6 +54,11 @@ public class ConvertTest {
 		String convertNum = trconvertNumform.convertNum("784");
 		assertEquals("DCCLXXXIV", convertNum);
 	}
+	@Test //アラビア数列をローマ数列へ変換する
+	public void testアラビア数列を入力するとアラビア数列ＤＣＣＬＸＸＸＩＶが返ってくる() {
+		String convertNum = trconvertNumform.convertNum("XIX");
+		assertEquals("19", convertNum);
+	}
 	@Test(expected = RuntimeException.class) //ローマ字の書式で同一種が４回以上連続で入力されているとエラーを返す
 	public void testローマ数列ＩＩＩＩを入力するとエラーが返ってくる() {
 		trconvertNumform.convertNum("IIIII");
@@ -81,6 +86,10 @@ public class ConvertTest {
 	@Test(expected = RuntimeException.class) //ローマ数列の書式で同一種が４回以上連続で入力されているとエラーを返す
 	public void testローマ数列とアラビ数列の混合した文字列入力するとエラーが返ってくる() {
 		trconvertNumform.convertNum("IV2");
+	}
+	@Test(expected = RuntimeException.class) //ローマ数列の書式で同一種が４回以上連続で入力されているとエラーを返す
+	public void testローマ列とアラビ数列の混合した文字列入力するとエラーが返ってくる() {
+		trconvertNumform.convertNum("IXX");
 	}
 
 }

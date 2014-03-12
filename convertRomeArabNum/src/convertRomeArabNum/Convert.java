@@ -172,14 +172,14 @@ public class Convert {
 	// ローマ数列書式チェック
 	private boolean checkRome(String romeNum) {
 		boolean result = true;
-		if (romeNum
-				.matches("[I]{4,}$|[V]{2,}$|[X]{4,}$|[L]{2,}$|[C]{4,}$|[D]{2,}$|[M]{4,}$")) {
-			throw new RuntimeException(
-					"ローマ数列の書式が不正です。単一の文字は3文字以内で構成しましょう。5の倍数を表す文字は2文字以上続けて表現できません。");
+		if (romeNum.matches("[I]{4,}$|[V]{2,}$|[X]{4,}$|[L]{2,}$|[C]{4,}$|[D]{2,}$|[M]{4,}$")) {
+			throw new RuntimeException("ローマ数列の書式が不正です。単一の文字は3文字以内で構成しましょう。5の倍数を表す文字は2文字以上続けて表現できません。");
 		} else if (romeNum.matches("I{2,}[VXLCDM]$|X{2,}[LCDM]$|C{2,}[DM]$")) {
 			throw new RuntimeException("ローマ数列の書式が不正です。Error001");
 		} else if (romeNum.matches("I[LCDM]|V[LCDM]|X[DM]|L[DM]|DM")) {
 			throw new RuntimeException("ローマ数列の書式が不正です。Error002");
+		} else if (romeNum.matches("[IV]X{2,}|[IVL]C{2,}|[IVLCD]M{2,}")) {
+			throw new RuntimeException("ローマ数列の書式が不正です。Error003");
 		}
 		return result;
 	}
