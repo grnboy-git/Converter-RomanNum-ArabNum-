@@ -3,19 +3,14 @@ package convertRomeArabNum;
 import java.util.ArrayList;
 
 public class Convert {
-	String errorMessage = "";
-
 	// ローマ数列をアラビア数列に変換するメインメソッド
 	public String convertNum(String romeNum) {
 		// 入力された数列の判別チェック
 		boolean result = checkStr(romeNum);
 		String ans = "";
-		if (result && errorMessage.equals("")) { // ローマ数列→アラビア数列
+		if (result) { // ローマ数列→アラビア数列
 			// ローマ数列の整合性チェック
-			if (!checkRome(romeNum)) {
-				System.out.println(errorMessage);
-				return errorMessage;
-			}
+			checkRome(romeNum);
 			// ローマ数列をリストに格納
 			ArrayList<String> strList = makeRomeList(romeNum);
 			// ローマ数列リストをアラビア数列リストへ変換
@@ -23,13 +18,10 @@ public class Convert {
 			// アラビア数列を処理して解を出力する
 			ans = String.valueOf(sumTotal(numList));
 			return ans;
-		} else if (!result && errorMessage.equals("")) { // アラビア数列→ローマ数列
+		} else { // アラビア数列→ローマ数列
 			// アラビア数列の整合性チェック
 			int num = Integer.parseInt(romeNum);
 			checkArab(num);
-			if (!checkArab(num)) {
-				return errorMessage;
-			}
 			// アラビア数列をリストに格納
 			ArrayList<Integer> numList = makeArabList(num);
 			// アラビア数列リストをローマ数列リストへ変換
@@ -37,9 +29,7 @@ public class Convert {
 			// ローマ数列を処理して解を出力する
 			ans = String.valueOf(ConnectRomeNumList(romeList));
 			return ans;
-		} else {
-			return errorMessage = "入力した数列の書式が不正です。(HINT:ローマ数列は<IVXLCDM>で表現します)";
-		}
+		} 
 	}
 
 	// /////////////////////////////////////////////////////////////////

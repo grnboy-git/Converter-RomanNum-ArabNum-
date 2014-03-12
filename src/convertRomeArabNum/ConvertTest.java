@@ -52,7 +52,6 @@ public class ConvertTest {
 	@Test //アラビア数列をローマ数列へ変換する
 	public void testアラビア数列７８４を入力するとアラビア数列ＤＣＣＬＸＸＸＩＶが返ってくる() {
 		String convertNum = trconvertNumform.convertNum("784");
-		System.out.println(convertNum);
 		assertEquals("DCCLXXXIV", convertNum);
 	}
 	@Test(expected = RuntimeException.class) //ローマ字の書式で同一種が４回以上連続で入力されているとエラーを返す
