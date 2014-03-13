@@ -46,8 +46,8 @@ public class ConvertTest {
 	}
 	@Test //アラビア数列をローマ数列へ変換する
 	public void testアラビア数列４を入力するとアラビア数列ＩＶが返ってくる() {
-		String convertNum = trconvertNumform.convertNum("4");
-		assertEquals("IV", convertNum);
+		String convertNum = trconvertNumform.convertNum("LVI");
+		assertEquals("56", convertNum);
 	}
 	@Test //アラビア数列をローマ数列へ変換する
 	public void testアラビア数列７８４を入力するとアラビア数列ＤＣＣＬＸＸＸＩＶが返ってくる() {
