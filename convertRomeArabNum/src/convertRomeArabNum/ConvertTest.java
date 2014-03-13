@@ -85,7 +85,7 @@ public class ConvertTest {
 	}
 	@Test(expected = RuntimeException.class) //ローマ数列の書式で同一種が４回以上連続で入力されているとエラーを返す
 	public void testローマ数列とアラビ数列の混合した文字列入力するとエラーが返ってくる() {
-		trconvertNumform.convertNum("IV2");
+		trconvertNumform.convertNum("MCMD");
 	}
 	@Test(expected = RuntimeException.class) //ローマ数列の書式で同一種が４回以上連続で入力されているとエラーを返す
 	public void testローマ列とアラビ数列の混合した文字列入力するとエラーが返ってくる() {

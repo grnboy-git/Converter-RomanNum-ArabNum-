@@ -180,6 +180,8 @@ public class Convert {
 			throw new RuntimeException("ローマ数列の書式が不正です。Error002");
 		} else if (romeNum.matches("[IV]X{2,}|[IVL]C{2,}|[IVLCD]M{2,}")) {
 			throw new RuntimeException("ローマ数列の書式が不正です。Error003");
+		} else if (romeNum.matches("IV[IVXLCDM]$|VI[VXLCDM]$|IX[IVXLCDM]$|XI[LCDM]$|XL[XLCDM]$|LX[LCDM]$|XC[XLCDM]$|CX[LCDM]$|CD[CDM]$|DC[DM]$|CMM$|MCM$")) {
+			throw new RuntimeException("ローマ数列の書式が不正です。Error003");
 		}
 		return result;
 	}
